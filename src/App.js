@@ -1,7 +1,14 @@
 import "./App.css";
+import SearchBar from "./components/SearchBar";
+import Index from "./api/index";
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <SearchBar />
+      <Index />
+    </div>
+  );
 }
 
 export default App;
