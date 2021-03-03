@@ -1,24 +1,20 @@
 import React from "react";
 import { useState } from "react";
+import API from "../api/API";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log(search);
-  };
   return (
     <div>
+      <h1>{search}</h1>
       <input
         type="search"
         placeholder="search for an anime"
         required
         onChange={(e) => setSearch(e.target.value)}
-      ></input>
-      <button type="submit" onClick={handleSearch}>
-        submit search
-      </button>
+      />
+      <API search={search} />
     </div>
   );
 }
