@@ -1,17 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import API from "../api/API";
+import API from "../../api/API";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
 
   return (
     <div>
-      <h1>{search}</h1>
       <input
+        className="search-bar"
         type="search"
         placeholder="search for an anime"
         required
+        value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
       <API search={search} />

@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import Main from "../components/Main";
+import Main from "../components/layouts/Main";
 import { useState } from "react";
 
 function API(props) {
@@ -21,12 +21,7 @@ function API(props) {
   return (
     <div>
       <button onClick={getAnime}>get response</button>
-      {animeList.map((anime) => (
-        <div>
-          {anime.mal_id} {anime.title}
-        </div>
-      ))}
-      <Main />
+      <Main animeList={animeList} />
     </div>
   );
 }
