@@ -5,8 +5,13 @@
 }
 
 .search-bar {
-  display: block;
-  margin: 0 auto;
+  margin: 1rem auto 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border: 2px solid;
+  width: 25rem;
 }
 
 #anime-info {
