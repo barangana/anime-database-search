@@ -29,9 +29,9 @@ function API(props) {
   const getTopAnimes = () => {
     Axios.get(`https://api.jikan.moe/v3/top/anime/1/upcoming`).then(
       (response) => {
-        //console.log(response.data.top);
+        console.log(response.data.top);
         const data = response.data.top.splice(0, 10);
-        //console.log(data);
+        console.log(data);
         setTopAnimes(data);
       }
     );
@@ -44,7 +44,7 @@ function API(props) {
 
   // Generates a random number and randomly fetches an anime from the Jikan API based on its ID.
   const getRandomAnime = () => {
-    const randomId = Math.floor(Math.random() * 1000001);
+    const randomId = Math.floor(Math.random() * 10001);
     Axios.get(`https://api.jikan.moe/v3/anime/${randomId}`).then((response) => {
       console.log(response);
     });
@@ -52,11 +52,15 @@ function API(props) {
 
   return (
     <div>
-      <button onClick={getAnime}>get response</button>
-      <button onClick={getRandomAnime}>get random response</button>
+      <button className="searchButton" onClick={getAnime}>
+        get response
+      </button>
+      <button className="randomButton" onClick={getRandomAnime}>
+        get random response
+      </button>
+      <TopAnime topAnimes={topAnimes} />
       <Main animeList={animeList} />
       {error && <h1>{error}</h1>}
-      <TopAnime topAnimes={topAnimes} />
     </div>
   );
 }

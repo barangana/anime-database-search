@@ -4,7 +4,7 @@ import AnimeCard from "../AnimeCard";
 function Main(props) {
   return (
     <div>
-      <h1>i am the main component</h1>
+      <h2>i am the main component</h2>
       {props.animeList.map((anime) => (
         <AnimeCard key={anime.mal_id} anime={anime} />
       ))}
