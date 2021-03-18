@@ -30,9 +30,9 @@ function API(props) {
     Axios.get(`https://api.jikan.moe/v3/top/anime/1/upcoming`).then(
       (response) => {
         console.log(response.data.top);
-        const data = response.data.top.splice(0, 10);
-        console.log(data);
-        setTopAnimes(data);
+        //const data = response.data.top.splice(0, 10);
+        //console.log(data);
+        setTopAnimes(response.data.top);
       }
     );
   };

@@ -21,22 +21,18 @@ function TopAnimeCard({ top }) {
     setTitle("");
   };
 
-  //TODO: Fix Button to show on hover of the image by making each image a component
   return (
-    <div className="content-anime">
-      <div>
-        <img
-          src={top.image_url}
-          onMouseEnter={handleHover}
-          onMouseLeave={handleLeave}
-          className="anime-image"
-          alt="anime poster"
-        ></img>
-        <button className="button-in-image" style={style}>
-          Details
-        </button>
-        <h4>{title}</h4>
+    <div
+      className="content-anime"
+      onMouseEnter={handleHover}
+      onMouseLeave={handleLeave}
+    >
+      <div className="test">
+        <img src={top.image_url} className="anime-image" alt="anime poster" />
       </div>
+      <button className="button-in-image" style={style} onClick={handleClick}>
+        Details
+      </button>
     </div>
   );
 }

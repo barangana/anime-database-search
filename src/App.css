@@ -24,6 +24,7 @@
 
 .content-anime {
   display: inline-block;
+  position: relative;
 }
 
 img {
@@ -33,10 +34,6 @@ img {
   padding: 10px;
 }
 
-img:hover {
-  filter: blur(1.5px);
-}
-
 h2 {
   padding-left: 10px;
   padding-top: 5px;
@@ -44,8 +41,26 @@ h2 {
 }
 
 .button-in-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
   margin: 0 auto;
-  top: 50%;
+  border: none;
+  background-color: orange;
+  color: white;
   padding: 12px 20px;
   border-radius: 4px;
+}
+
+.button-in-image:hover {
+  background-color: black;
+}
+
+.anime-title {
+  position: absolute;
+}
+
+.test:hover {
+  filter: blur(1.5px);
 }
