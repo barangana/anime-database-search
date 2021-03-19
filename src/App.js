@@ -1,12 +1,8 @@
 import "./App.css";
-import SearchBar from "./components/layouts/SearchBar";
+import Index from "./pages/index";
 
 function App() {
-  return (
-    <div>
-      <SearchBar />
-    </div>
-  );
+  return <Index />;
 }
 
 export default App;

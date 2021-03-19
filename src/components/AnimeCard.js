@@ -1,24 +1,22 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function AnimeCard({ anime }) {
   const [style, setStyle] = useState({ display: "none" });
   const [title, setTitle] = useState("");
-  const animeTitle = anime.title;
+
+  const handleClick = (e) => {
+    console.log(anime.title);
+  };
 
   const handleHover = (e) => {
-    console.log(animeTitle);
+    console.log(anime.title);
     setStyle({ display: "block" });
-    setTitle(animeTitle);
+    setTitle(anime.title);
   };
 
   const handleLeave = (e) => {
     setStyle({ display: "none" });
     setTitle("");
-  };
-
-  const handleClick = (e) => {
-    console.log(animeTitle);
   };
 
   return (
@@ -27,8 +25,8 @@ function AnimeCard({ anime }) {
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
     >
-      <div>
-        <img src={anime.image_url}></img>
+      <div className="test">
+        <img src={anime.image_url} className="anime-image" alt="anime poster" />
       </div>
       <button className="button-in-image" style={style} onClick={handleClick}>
         Details

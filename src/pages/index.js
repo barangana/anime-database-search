@@ -1,23 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import Main from "../components/layouts/Main";
-import { useState, useEffect } from "react";
-import TopAnime from "../components/TopAnime";
+import AnimeCard from "../components/AnimeCard";
 
-function API(props) {
+const Index = () => {
   const [animeList, setAnimeList] = useState([]);
   const [error, setError] = useState("");
   const [topAnimes, setTopAnimes] = useState([]);
+  const [search, setSearch] = useState("");
 
   // Gets the data from the Jikan API
   const getAnime = () => {
-    const searchData = props.search;
-    if (!searchData) {
+    if (!search) {
       console.log("testing empty input");
       setError("Please enter a value.");
     } else {
       Axios.get(
-        `https://api.jikan.moe/v3/search/anime?q=${searchData}page=1&limit=10`
+        `https://api.jikan.moe/v3/search/anime?q=${search}page=1&limit=10`
       ).then((response) => {
         //console.log(response.data.results);
         setAnimeList(response.data.results);
@@ -49,20 +47,39 @@ function API(props) {
       console.log(response);
     });
   };
-
   return (
     <div>
-      <button className="searchButton" onClick={getAnime}>
-        get response
-      </button>
-      <button className="randomButton" onClick={getRandomAnime}>
-        get random response
-      </button>
-      <TopAnime topAnimes={topAnimes} />
-      <Main animeList={animeList} />
-      {error && <h1>{error}</h1>}
+      <input
+        className="search-bar"
+        type="search"
+        placeholder="search for an anime"
+        required
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <div>
+        <button className="searchButton" onClick={getAnime}>
+          get response
+        </button>
+        <button className="randomButton" onClick={getRandomAnime}>
+          get random response
+        </button>
+        {error && <h1>{error}</h1>}
+      </div>
+      <div>
+        <h2>i am the main component</h2>
+        {animeList.map((anime) => (
+          <AnimeCard key={anime.mal_id} anime={anime} />
+        ))}
+      </div>
+      <div>
+        <h2>Top Upcoming Animes</h2>
+        {topAnimes.map((topAnime) => (
+          <AnimeCard key={topAnime.mal_id} anime={topAnime} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
-export default API;
+export default Index;
