@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function AnimeCard({ anime }) {
   const [style, setStyle] = useState({ display: "none" });
@@ -28,9 +29,12 @@ function AnimeCard({ anime }) {
       <div className="test">
         <img src={anime.image_url} className="anime-image" alt="anime poster" />
       </div>
-      <button className="button-in-image" style={style} onClick={handleClick}>
-        Details
-      </button>
+      <Link exact to={`/anime-info/${anime.mal_id}`}>
+        <button className="button-in-image" style={style} onClick={handleClick}>
+          Details
+        </button>
+      </Link>
+      <h6 className="title-in-card">{title}</h6>
     </div>
   );
 }

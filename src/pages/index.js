@@ -23,7 +23,7 @@ const Index = () => {
     }
   };
 
-  // Calls the Jikan API and gest the top 10 upcoming animes.
+  // Calls the Jikan API and gets the top 10 upcoming animes.
   const getTopAnimes = () => {
     Axios.get(`https://api.jikan.moe/v3/top/anime/1/upcoming`).then(
       (response) => {
@@ -47,6 +47,7 @@ const Index = () => {
       console.log(response);
     });
   };
+
   return (
     <div>
       <input

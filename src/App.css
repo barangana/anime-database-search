@@ -62,5 +62,13 @@ h2 {
 }
 
 .test:hover {
-  filter: blur(1.5px);
+  filter: blur(5px);
+}
+
+.title-in-card {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
 }
