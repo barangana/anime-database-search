@@ -27,7 +27,7 @@ const Index = () => {
   const getTopAnimes = () => {
     Axios.get(`https://api.jikan.moe/v3/top/anime/1/upcoming`).then(
       (response) => {
-        console.log(response.data.top);
+        //console.log(response.data.top);
         //const data = response.data.top.splice(0, 10);
         //console.log(data);
         setTopAnimes(response.data.top);
@@ -43,9 +43,14 @@ const Index = () => {
   // Generates a random number and randomly fetches an anime from the Jikan API based on its ID.
   const getRandomAnime = () => {
     const randomId = Math.floor(Math.random() * 10001);
-    Axios.get(`https://api.jikan.moe/v3/anime/${randomId}`).then((response) => {
-      console.log(response);
-    });
+  };
+
+  // Checks if the "Enter" button has been pressed and then calls the getAnime function.
+  const enterPress = (e) => {
+    if (e.keyCode === 13) {
+      console.log(search);
+      getAnime();
+    }
   };
 
   return (
@@ -56,6 +61,7 @@ const Index = () => {
         placeholder="search for an anime"
         required
         value={search}
+        onKeyDown={enterPress}
         onChange={(e) => setSearch(e.target.value)}
       />
       <div>

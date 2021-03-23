@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Index} />
-          <Route exact path="/anime-info" component={AnimePage} />
+          <Route exact path="/anime-info/:animeId" component={AnimePage} />
           <Route exact="*" component={Index} />
         </Switch>
       </Router>
