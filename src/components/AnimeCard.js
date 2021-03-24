@@ -28,15 +28,17 @@ function AnimeCard({ anime }) {
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
     >
-      <div className="test">
-        <img src={anime.image_url} className="anime-image" alt="anime poster" />
-      </div>
+      <img
+        src={anime.image_url}
+        className="anime-image-card"
+        alt="anime poster"
+      />
       <Link to={`/anime-info/${anime.mal_id}`}>
         <button className="button-in-image" style={style} onClick={handleClick}>
           Details
         </button>
       </Link>
-      <h6 className="title-in-card">{title}</h6>
+      <div className="title-in-card">{title}</div>
     </div>
   );
 }

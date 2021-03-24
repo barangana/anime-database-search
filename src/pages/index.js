@@ -15,7 +15,7 @@ const Index = () => {
       setError("Please enter a value.");
     } else {
       Axios.get(
-        `https://api.jikan.moe/v3/search/anime?q=${search}page=1&limit=10`
+        `https://api.jikan.moe/v3/search/anime?q=${search}page=1&limit=20`
       ).then((response) => {
         //console.log(response.data.results);
         setAnimeList(response.data.results);
