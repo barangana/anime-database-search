@@ -18,6 +18,7 @@ function AnimePage() {
   return (
     <div className="anime-page-container">
       <div className="anime-page-info-container">
+        <h1 className="anime-page-title">{details.title}</h1>
         <div className="anime-image-container">
           <img src={details.image_url} className="anime-page-image"></img>
           <div className="trailer-container">
@@ -30,7 +31,6 @@ function AnimePage() {
             />
           </div>
         </div>
-        <h1 className="anime-page-title">{details.title}</h1>
         <div>Synopsis: {details.synopsis}</div>
         <div>{details.status}</div>
       </div>

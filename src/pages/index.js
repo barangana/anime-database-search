@@ -7,6 +7,7 @@ const Index = () => {
   const [error, setError] = useState("");
   const [topAnimes, setTopAnimes] = useState([]);
   const [search, setSearch] = useState("");
+  const [airingList, setAiringList] = useState([]);
 
   // Gets the data from the Jikan API
   const getAnime = () => {
@@ -35,15 +36,21 @@ const Index = () => {
     );
   };
 
+  // Calls the Jikan API and gets the top airing animes.
+  const getAiringAnimes = () => {
+    Axios.get("https://api.jikan.moe/v3/top/anime/1/airing").then(
+      (response) => {
+        console.log(response.data.top);
+        setAiringList(response.data.top);
+      }
+    );
+  };
+
   // Loads the data from the top animes onto the component.
   useEffect(() => {
     getTopAnimes();
+    getAiringAnimes();
   }, []);
-
-  // Generates a random number and randomly fetches an anime from the Jikan API based on its ID.
-  const getRandomAnime = () => {
-    const randomId = Math.floor(Math.random() * 10001);
-  };
 
   // Checks if the "Enter" button has been pressed and then calls the getAnime function.
   const enterPress = (e) => {
@@ -55,28 +62,30 @@ const Index = () => {
 
   return (
     <div>
-      <input
-        className="search-bar"
-        type="search"
-        placeholder="search for an anime"
-        required
-        value={search}
-        onKeyDown={enterPress}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div>
-        <button className="searchButton" onClick={getAnime}>
-          get response
+      <div className="input-container">
+        <input
+          className="search-bar"
+          type="search"
+          placeholder="Enter Anime Name"
+          required
+          value={search}
+          onKeyDown={enterPress}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button className="search-button" onClick={getAnime}>
+          Search
         </button>
-        <button className="randomButton" onClick={getRandomAnime}>
-          get random response
-        </button>
-        {error && <h1>{error}</h1>}
       </div>
       <div>
-        <h2>i am the main component</h2>
+        <h2>Search results: {search || error}</h2>
         {animeList.map((anime) => (
           <AnimeCard key={anime.mal_id} anime={anime} />
+        ))}
+      </div>
+      <div>
+        <h2>Top Airing Animes</h2>
+        {airingList.map((airing) => (
+          <AnimeCard key={airing.mal_id} anime={airing} />
         ))}
       </div>
       <div>
