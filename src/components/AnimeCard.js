@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-//import AnimePage from "../pages/AnimePage";
 
 function AnimeCard({ anime }) {
   const [style, setStyle] = useState({ display: "none" });

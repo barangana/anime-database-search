@@ -77,7 +77,7 @@ const Index = () => {
         </button>
       </div>
       <div>
-        <h2>Search results: {search || error}</h2>
+        <h2> Search Results: {error || search}</h2>
         {animeList.map((anime) => (
           <AnimeCard key={anime.mal_id} anime={anime} />
         ))}

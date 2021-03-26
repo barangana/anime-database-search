@@ -31,7 +31,7 @@ function AnimePage() {
             />
           </div>
         </div>
-        <div>Synopsis: {details.synopsis}</div>
+        <div className="synopsis">Synopsis: {details.synopsis}</div>
         <div>{details.status}</div>
       </div>
     </div>
