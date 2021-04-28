@@ -1,4 +1,4 @@
-## <h1> Seirei List <h1>
+## <h1> Anime Database Search <h1>
 Seirei List allows the user to search for animes, displays top airing animes and top upcoming animes. Shows the basic information with a possible trailer on the description page.
 
 ## Created With
@@ -7,3 +7,5 @@ Seirei List allows the user to search for animes, displays top airing animes and
 
 ## API Used
 https://jikan.docs.apiary.io/#
+
+## Images
